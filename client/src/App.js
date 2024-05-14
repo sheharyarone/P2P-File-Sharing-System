@@ -1,9 +1,9 @@
-import Message from './message.js'
+import FileList from './Pages/landingPage.js'
 
 function App() {
   return (
     <div className="App">
-      <Message/>
+      <FileList/>
     </div>
   );
 }

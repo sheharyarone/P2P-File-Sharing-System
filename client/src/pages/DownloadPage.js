@@ -14,10 +14,13 @@ function DownloadPage({fetchUrl}) {
       .catch(error => console.error('Error fetching files:', error));
   };
 
-  const handleDownload = (filename) => {
-    // Implement the download functionality
-    console.log('Downloading', filename);
+  const handleDownload = (file) => {
+    const downloadLink = document.createElement('a');
+    downloadLink.href = file.Link + file.Filename;
+    downloadLink.download = file.Filename;
+    downloadLink.click();
   };
+  
 
   return (
     <div className="file-list-container">
@@ -36,7 +39,7 @@ function DownloadPage({fetchUrl}) {
               <td>{file.Link}</td>
               <td>{file.Filename}</td>
               <td>
-                <button className="download-button" onClick={() => handleDownload(file.filename)}>Download</button>
+                <button className="download-button" onClick={() => handleDownload(file)}>Download</button>
               </td>
             </tr>
           ))}

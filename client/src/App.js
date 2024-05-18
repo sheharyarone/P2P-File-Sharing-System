@@ -1,10 +1,16 @@
-import FileList from './Pages/landingPage.js'
-
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import HomePage from './components/HomePage';
+// import AboutPage from './components/AboutPage';
+import FileList from './Pages/landingPage'
 function App() {
   return (
-    <div className="App">
-      <FileList/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/receive" element={<FileList />} />
+        {/* <Route path="/about" element={<AboutPage />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

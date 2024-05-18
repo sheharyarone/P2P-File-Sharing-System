@@ -25,9 +25,9 @@ router.post('/', (req, res) => {
 
   // Process each item in the array
   const promises = data.map(item => {
-    const { port, filename } = item;
+    const { Link, Filename } = item;
     return new Promise((resolve, reject) => {
-      File.create(port, filename, (err, result) => {
+      File.create(Link, Filename, (err, result) => {
         if (err) {
           reject(err);
         } else {

@@ -1,46 +1,42 @@
-// FileList.js
-import './landingPage.css'
 import React, { useState, useEffect } from 'react';
 
-function FileList() {
+function DownloadPage({fetchUrl}) {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
     handleRefresh();
-  }, []);
+  }, [fetchUrl]);
 
   const handleRefresh = () => {
-    fetch('http://localhost:4000/files')
+    fetch(fetchUrl)
       .then(response => response.json())
       .then(data => setFiles(data))
       .catch(error => console.error('Error fetching files:', error));
   };
 
   const handleDownload = (filename) => {
-    // Logic to handle file download
-    console.log('Downloading file:', filename);
+    // Implement the download functionality
+    console.log('Downloading', filename);
   };
 
   return (
     <div className="file-list-container">
-      <h2>List of Available Files</h2>
-      <button className='download-button' onClick={handleRefresh}>Refresh</button>
+      <h2>List of Available Files</h2> 
       <table className="file-table">
         <thead>
           <tr>
-            <th>Port</th>
+            <th>Link</th>
             <th>Filename</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          
           {files.map(file => (
-            <tr key={file.port}>
-              <td>{file.port}</td>
-              <td>{file.filename}</td>
+            <tr k>
+              <td>{file.Link}</td>
+              <td>{file.Filename}</td>
               <td>
-                <button className="download-button" to="/receive" onClick={() => handleDownload(file.filename)}>Download</button>
+                <button className="download-button" onClick={() => handleDownload(file.filename)}>Download</button>
               </td>
             </tr>
           ))}
@@ -50,4 +46,5 @@ function FileList() {
   );
 }
 
-export default FileList;
+
+export default DownloadPage;

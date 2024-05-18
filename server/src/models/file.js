@@ -4,8 +4,8 @@ const db = require('../config/db');
 
 const File = {};
 
-File.create = (port, filename, callback) => {
-  db.query('INSERT INTO files (port, filename) VALUES (?, ?)', [port, filename], callback);
+File.create = (Link, Filename, callback) => {
+  db.query('INSERT INTO files (Link, Filename) VALUES (?, ?)', [Link, Filename], callback);
 };
 
 File.getAll = (callback) => {

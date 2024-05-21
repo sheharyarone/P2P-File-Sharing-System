@@ -26,10 +26,10 @@ function DownloadPage({ fetchUrl }) {
       .
       <div className="container d-flex flex-column justify-content-center align-items-center">
         <h2 className="text-center mb-4">List of Available Files</h2>
-        <table className="table table-striped table-bordered file-table">
+        <table className=" table-striped table-bordered" >
           <thead>
             <tr>
-              <th scope="col">Link</th>
+              {/* <th scope="col">Link</th> */}
               <th scope="col">Filename</th>
               <th scope="col">Actions</th>
             </tr>
@@ -39,7 +39,7 @@ function DownloadPage({ fetchUrl }) {
               <tr key={file.id}>
                 {" "}
                 {/* Assuming a unique identifier for each file */}
-                <td>{file.Link}</td>
+                {/* <td>{file.Link}</td> */}
                 <td>{file.Filename}</td>
                 <td>
                   <button onClick={() => handleDownload(file)}>Download</button>

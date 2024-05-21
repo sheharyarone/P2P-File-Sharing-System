@@ -37,7 +37,8 @@
     -->
     <title>React App</title>
     <style>
-      h1,h2{
+      h1,
+      h2 {
         color: aliceblue;
       }
       table {
@@ -47,8 +48,19 @@
         border-spacing: 0; /* Ensures no space between table cells */
         border-radius: 12px; /* Rounds the edges of the table */
         overflow: hidden; /* Ensures the rounded corners are visible */
+        text-align: center;
+        width: 700px;
       }
-     
+      
+      /* Define alternating background colors for even and odd rows */
+      table tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light gray */
+      }
+
+      table tr:nth-child(odd) {
+        background-color: #ffffff; /* White */
+      }
+
       table th,
       table td {
         border: 1px solid black; /* Optional: if you want to see the table borders */

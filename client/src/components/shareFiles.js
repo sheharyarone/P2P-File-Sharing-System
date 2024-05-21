@@ -7,14 +7,29 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
   const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
 
-  const handleFileUpload = (event) => {
-    const files = event.target.files;
+  const handleFileUpload = (files) => {
     const names = Array.from(files).map(file => file.name);
     setFileNames(names);
   };
 
+  const handleInputChange = (event) => {
+    handleFileUpload(event.target.files);
+  };
+
   const handleDropzoneClick = () => {
     fileInputRef.current.click();
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    // Optional: Add a visual indicator for the drop zone
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    handleFileUpload(event.dataTransfer.files);
   };
 
   const sendFileNamesToServer = () => {
@@ -46,12 +61,17 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
   return (
     <div className="file-upload-container d-flex flex-column justify-content-center align-items-center">
       <h1 className="text-center mb-4">Upload Files</h1>
-      <div className="dropzone border rounded" onClick={handleDropzoneClick}>
+      <div 
+        className="dropzone border rounded" 
+        onClick={handleDropzoneClick}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+      >
         <p className="dropzone-text text-center">Drag & drop files here or click to select</p>
         <input 
           type="file" 
           multiple 
-          onChange={handleFileUpload} 
+          onChange={handleInputChange} 
           ref={fileInputRef} 
           className="d-none" 
         />

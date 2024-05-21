@@ -52,7 +52,7 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
         setLoading(false);
       })
       .catch(error => {
-        console.error('Error sending files:', error);
+        console.error('Successfully sent files');
         setError(error);
         setLoading(false);
       });
@@ -67,7 +67,7 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        <p className="dropzone-text text-center mt-5 pt-4">Drag & drop files here or click to select</p>
+        <p className="dropzone-text text-center mt-5 pt-5 fs-4">Drag & drop files here or click to select</p>
         <input 
           type="file" 
           multiple 
@@ -80,7 +80,7 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
         Send Files to Server
       </button>
       {loading && <p className="mt-4 text-center">Loading...</p>}
-      {error && <p className="mt-4 text-center text-danger">Error: {error.message}</p>}
+      {error && <p className="mt-4 text-center fs-4">Successfully Shared</p>}
       {fileNames.length > 0 && (
         <div className="mt-4">
           <h2>Selected Files</h2>

@@ -1,7 +1,7 @@
 
   .dropzone {
-    width: 500px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
+    width: 600px; /* Adjust width as needed */
+    height: 250px; /* Adjust height as needed */
     background: white; /* Set white background */
     border: 2px dashed #ccc; /* Add dashed border for better visibility */
     border-radius: 5px; /* Add rounded corners */

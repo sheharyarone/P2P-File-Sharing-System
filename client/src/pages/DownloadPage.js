@@ -42,12 +42,7 @@ function DownloadPage({ fetchUrl }) {
                 <td>{file.Link}</td>
                 <td>{file.Filename}</td>
                 <td>
-                  <button
-                    className="btn btn-primary download-button"
-                    onClick={() => handleDownload(file)}
-                  >
-                    Download
-                  </button>
+                  <button onClick={() => handleDownload(file)}>Download</button>
                 </td>
               </tr>
             ))}

@@ -60,14 +60,14 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
 
   return (
     <div className="file-upload-container d-flex flex-column justify-content-center align-items-center">
-      <h1 className="text-center mb-4">Upload Files</h1>
+      <h1 className="text-center m-5">Upload Files</h1>
       <div 
         className="dropzone border rounded" 
         onClick={handleDropzoneClick}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        <p className="dropzone-text text-center">Drag & drop files here or click to select</p>
+        <p className="dropzone-text text-center mt-5 pt-4">Drag & drop files here or click to select</p>
         <input 
           type="file" 
           multiple 
@@ -76,7 +76,7 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
           className="d-none" 
         />
       </div>
-      <button className="btn btn-primary mt-4" onClick={sendFileNamesToServer}>
+      <button className="mt-4" onClick={sendFileNamesToServer}>
         Send Files to Server
       </button>
       {loading && <p className="mt-4 text-center">Loading...</p>}

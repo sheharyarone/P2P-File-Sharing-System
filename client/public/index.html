@@ -32,10 +32,115 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <style>
+      table {
+        background-color: white;
+        color: black;
+        border-collapse: separate; /* Prevents borders from overlapping at corners */
+        border-spacing: 0; /* Ensures no space between table cells */
+        border-radius: 12px; /* Rounds the edges of the table */
+        overflow: hidden; /* Ensures the rounded corners are visible */
+      }
+     
+      table th,
+      table td {
+        border: 1px solid black; /* Optional: if you want to see the table borders */
+        padding: 8px; /* Optional: to add some padding to the cells */
+      }
+      table button {
+        background-color: black;
+        color: white;
+        border: none; /* Optional: remove the default button border */
+        padding: 8px 16px; /* Optional: add some padding to the button */
+        cursor: pointer; /* Optional: change cursor to pointer on hover */
+      }
+
+      table button:hover {
+        background-color: #333; /* Optional: slightly lighter black on hover */
+      }
+
+      input {
+        font-family: "Raleway", sans-serif;
+
+        &:focus {
+          outline: none;
+        }
+
+        border-radius: 100rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+      }
+
+      button,
+      input[type="button"] {
+        font-family: "Roboto", sans-serif;
+        border-radius: 100rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+        background-color: #007bff;
+        border: 0px solid #007bff;
+        color: white;
+        cursor: pointer;
+        background-color: white;
+        color: #007bff;
+      }
+
+      button:hover,
+      input[type="button"]:hover,
+      button.hover,
+      input[type="button"].hover {
+        background-color: #0057b5;
+        color: white;
+        transform: scale(1.2);
+      }
+
+      body {
+        background: linear-gradient(299deg, #d000ff, #ab00ff, #7300ff);
+        background-size: 600% 600%;
+
+        -webkit-animation: AnimationName 10s ease infinite;
+        -moz-animation: AnimationName 10s ease infinite;
+        animation: AnimationName 10s ease infinite;
+      }
+      @-webkit-keyframes AnimationName {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      @-moz-keyframes AnimationName {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      @keyframes AnimationName {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" style="background: linear-gradient(to bottom, rgb(92, 135, 228), rgb(220, 221, 228)); height: 100vh;"></div>
+    <div id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

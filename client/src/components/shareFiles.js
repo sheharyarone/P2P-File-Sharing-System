@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import './shareFiles.css';
 
 const ShareFiles = ({ serverApi, requestUrl }) => {
   const [fileNames, setFileNames] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleFileUpload = (event) => {
     const files = event.target.files;
@@ -11,11 +13,15 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
     setFileNames(names);
   };
 
+  const handleDropzoneClick = () => {
+    fileInputRef.current.click();
+  };
+
   const sendFileNamesToServer = () => {
     setLoading(true);
     const payload = fileNames.map(filename => ({
-      Filename : filename,
-      Link: requestUrl // Assuming you want to send the current URL as the requestUrl
+      Filename: filename,
+      Link: requestUrl, // Assuming you want to send the current URL as the requestUrl
     }));
 
     fetch(serverApi, {
@@ -38,18 +44,31 @@ const ShareFiles = ({ serverApi, requestUrl }) => {
   };
 
   return (
-    <div>
-      <h1>Upload Files</h1>
-      <input type="file" multiple onChange={handleFileUpload} />
-      <button onClick={sendFileNamesToServer}>Send Files to Server</button>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
+    <div className="file-upload-container d-flex flex-column justify-content-center align-items-center">
+      <h1 className="text-center mb-4">Upload Files</h1>
+      <div className="dropzone border rounded" onClick={handleDropzoneClick}>
+        <p className="dropzone-text text-center">Drag & drop files here or click to select</p>
+        <input 
+          type="file" 
+          multiple 
+          onChange={handleFileUpload} 
+          ref={fileInputRef} 
+          className="d-none" 
+        />
+      </div>
+      <button className="btn btn-primary mt-4" onClick={sendFileNamesToServer}>
+        Send Files to Server
+      </button>
+      {loading && <p className="mt-4 text-center">Loading...</p>}
+      {error && <p className="mt-4 text-center text-danger">Error: {error.message}</p>}
       {fileNames.length > 0 && (
-        <div>
+        <div className="mt-4">
           <h2>Selected Files</h2>
-          <ul>
+          <ul className="file-list list-group">
             {fileNames.map((file, index) => (
-              <li key={index}>{file}</li>
+              <li key={index} className="file-list-item list-group-item">
+                {file}
+              </li>
             ))}
           </ul>
         </div>
